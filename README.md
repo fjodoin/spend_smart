@@ -1,1 +1,1 @@
-Android Application to help users spend smarter
+JavaScript Application to help users spend smarter
