@@ -1,1 +1,25 @@
-<p>section-history works!</p>
+<div class="section-container">
+  <h2>
+    Spending History
+  </h2>
+  <table class="table table-inverse table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Company</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody style="color: white">
+      <tr *ngFor="let expense of expenses">
+        <td>{{ expense.id }}</td>
+        <td>{{ expense.company.name }}</td>
+        <td>{{ expense.amount }}</td>
+        <td>{{ expense.date | date: 'short' }}</td>
+        <td>{{ expense.type }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

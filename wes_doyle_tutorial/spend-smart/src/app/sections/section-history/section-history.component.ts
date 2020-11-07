@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EXPENSE_SAMPLE_DATA } from '../../shared/expense.sample';
 
 @Component({
   selector: 'app-section-history',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class SectionHistoryComponent implements OnInit {
 
   constructor() { }
+
+  expenses = EXPENSE_SAMPLE_DATA;
 
   ngOnInit(): void {
   }
