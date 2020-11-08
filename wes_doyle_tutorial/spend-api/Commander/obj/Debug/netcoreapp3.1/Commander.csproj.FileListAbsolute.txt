@@ -61,3 +61,11 @@ C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-a
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\Commander\obj\Debug\netcoreapp3.1\Commander.csproj.CopyComplete
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\Commander\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\Commander\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\Commander\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\Commander\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\Commander\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\Commander\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\Commander\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\Commander\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\Commander\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\Commander\obj\Debug\netcoreapp3.1\Commander.MvcApplicationPartsAssemblyInfo.cs

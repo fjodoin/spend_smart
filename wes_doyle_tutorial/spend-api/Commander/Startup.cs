@@ -13,6 +13,9 @@ using Microsoft.Extensions.Logging;
 using Commander.Data;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
+using Newtonsoft.Json.Serialization;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace Commander
 {
@@ -30,11 +33,17 @@ namespace Commander
             services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer
                 (Configuration.GetConnectionString("CommanderConnection")));
             
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(s => {
+                s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();    
+            });
 
             services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddMvc();
+
+            services.AddSwaggerGen();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -45,6 +54,13 @@ namespace Commander
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseRouting();
 
