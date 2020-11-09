@@ -32,6 +32,11 @@ namespace SpendsterApi
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(opt => {
+                opt.AddPolicy("CorsPolicy",
+                    c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
+
             _connectionString = Configuration["secretConnectionString"];
 
             services.AddDbContext<ExpenseContext>(opt => opt.UseSqlServer(_connectionString));
@@ -58,9 +63,10 @@ namespace SpendsterApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors("CorsPolicy");
             }
 
-            seed.SeedData(40);
+            seed.SeedData(50);
 
             app.UseHttpsRedirection();
 

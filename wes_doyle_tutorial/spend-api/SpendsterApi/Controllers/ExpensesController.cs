@@ -27,8 +27,11 @@ namespace SpendsterApi.Controllers
         public ActionResult<IEnumerable<ExpenseReadDto>> GetAllExpenses()
         {
             var expenseItems = _repository.GetAllExpenses();
+            var mappedExpenseItems = _mapper.Map<IEnumerable<ExpenseReadDto>>(expenseItems);
 
-            return Ok(_mapper.Map<IEnumerable<ExpenseReadDto>>(expenseItems));
+            //var page = new PaginatedResponse<Expense>(mappedExpenseItems);
+            
+            return Ok(mappedExpenseItems);
         }
 
         //GET api/spendster/expenses/{id}

@@ -69,13 +69,13 @@ namespace SpendsterApi
         internal static string MakeExpenseDate()
         {
             var latest = DateTime.Now;
-            var earliest = latest.AddDays(-90);
+            var earliest = latest.AddDays(-30);
 
             TimeSpan possibleSpan = latest - earliest;
             TimeSpan newSpan = new TimeSpan(0, _rand.Next(0, (int)possibleSpan.TotalMinutes), 0);
             var newDate = earliest + newSpan;
             
-            return newDate.ToString("dd/MM/yyyy HH:mm:ss");
+            return newDate.ToString("yyyy/MM/dd");
         }
 
         internal static string MakeExpenseType()

@@ -10,9 +10,23 @@ export class SectionHistoryComponent implements OnInit {
 
   constructor() { }
 
+  //expenses: Expense[];
   expenses = EXPENSE_SAMPLE_DATA;
 
+  total = 0;
+  page = 1;
+  limit = 3;
+
   ngOnInit(): void {
+    //API GET EXPENSES HERE
+    //getExpenses(this.page, this.limit)
   }
 
+  goToPrevious(): void {
+    console.log('Previous button clicked');
+  }
+
+  goToNext(): void {
+    console.log('Next button clicked');
+  }
 }

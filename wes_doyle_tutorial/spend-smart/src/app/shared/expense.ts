@@ -1,8 +1,6 @@
-import { Company } from './company';
-
 export interface Expense {
   id: number;
-  company: Company;
+  company: string;
   amount: number;
   date: Date;
   type: string;

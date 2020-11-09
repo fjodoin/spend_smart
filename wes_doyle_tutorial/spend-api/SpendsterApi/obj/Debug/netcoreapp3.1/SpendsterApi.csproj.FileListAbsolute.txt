@@ -1,5 +1,6 @@
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\bin\Debug\netcoreapp3.1\package-lock.json
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\bin\Debug\netcoreapp3.1\SpendsterApi.exe
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\bin\Debug\netcoreapp3.1\SpendsterApi.deps.json

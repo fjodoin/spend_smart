@@ -15,6 +15,8 @@ import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { ServerComponent } from './server/server.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ExpensesDataServices } from './services/expenses-data.service';
 
 @NgModule({
   declarations: [
@@ -32,11 +34,12 @@ import { PaginationComponent } from './pagination/pagination.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
     AppRoutingModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [ExpensesDataServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

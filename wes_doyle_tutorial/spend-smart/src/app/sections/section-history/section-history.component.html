@@ -15,11 +15,15 @@
     <tbody style="color: white">
       <tr *ngFor="let expense of expenses">
         <td>{{ expense.id }}</td>
-        <td>{{ expense.company.name }}</td>
+        <td>{{ expense.company }}</td>
         <td>{{ expense.amount }}</td>
         <td>{{ expense.date | date: 'short' }}</td>
         <td>{{ expense.type }}</td>
       </tr>
     </tbody>
   </table>
+  <app-pagination
+    (goPrev)="goToPrevious()"
+    (goNext)="goToNext()">
+  </app-pagination>
 </div>

@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-const SAMPLE_BARCHART_DATA: any[] = [
-  { data: [65, 59, 80, 40, 12, 52, 100, 150, 50, 70, 75, 56], label: 'Fall Spendings'},
-  { data: [76, 67, 90, 38, 140, 112, 59, 110, 45, 67, 12, 45], label: 'Winter Spendings'}
-];
-
-const SAMPLE_BARCHART_LABELS: string[] = ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10', 'W11', 'W12'];
+import { ExpensesDataServices } from '../../services/expenses-data.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-bar-chart',
@@ -14,18 +9,50 @@ const SAMPLE_BARCHART_LABELS: string[] = ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W
 })
 export class BarChartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _expensesDataServices: ExpensesDataServices) { }
 
-  public barChartData: any[] = SAMPLE_BARCHART_DATA;
-  public barChartLabels: string[] = SAMPLE_BARCHART_LABELS;
+  expenses: any;
+
+  public barChartData: any[];
+  public barChartLabels: string[];
+  public barChartType = 'bar';
+  public barChartLegend = true;
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true
-  }
-  public barChartLegend = true;
-  public barChartType = 'bar';
+  };
    
-  ngOnInit(): void {
+  ngOnInit() {
+    this._expensesDataServices.getExpenses().subscribe((res: any[]) => {
+      console.log(res);
+      const localChartData = this.getChartData(res);
+      this.barChartLabels = localChartData.map(x => x[0]).sort();
+      this.barChartData = [{ 'data': localChartData.map(x => x[1]), 'label': 'Expenses' }];
+    });
   }
 
-}
+  getChartData(res: any[]) {
+    this.expenses = res;
+    const formattedDates = this.expenses.reduce((r, e) => {
+      r.push([moment(e.date).format('YY-MM-DD'), e.amount]);
+      return r;
+    }, []);
+
+    const p = [];
+
+    const chartData = formattedDates.reduce((r, e) => {
+      const key = e[0];
+      if (!p[key]) {
+        p[key] = e;
+        r.push(p[key]);
+      }
+      else {
+        p[key][1] += e[1];
+      }
+      return r;
+    }, []);
+
+    return chartData;
+  }
+
+ }
