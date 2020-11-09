@@ -1,9 +1,3 @@
-C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.csprojAssemblyReference.cache
-C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.AssemblyInfoInputs.cache
-C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.AssemblyInfo.cs
-C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.csproj.CoreCompileInputs.cache
-C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -62,6 +56,12 @@ C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-a
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.csprojAssemblyReference.cache
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.AssemblyInfoInputs.cache
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.AssemblyInfo.cs
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.csproj.CoreCompileInputs.cache
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.RazorTargetAssemblyInfo.cache
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\SpendsterApi.csproj.CopyComplete
 C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendsterApi\obj\Debug\netcoreapp3.1\staticwebassets\SpendsterApi.StaticWebAssets.Manifest.cache

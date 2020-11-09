@@ -47,15 +47,20 @@ namespace SpendsterApi
             services.AddMvc();
 
             services.AddSwaggerGen();
+
+            services.AddTransient<DataSeed>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataSeed seed)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            seed.SeedData(40);
 
             app.UseHttpsRedirection();
 
