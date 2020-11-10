@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpensesDataServices } from '../../services/expenses-data.service';
 import * as moment from 'moment';
+import { Expense } from '../../shared/expense';
 
 @Component({
   selector: 'app-bar-chart',
@@ -24,7 +25,7 @@ export class BarChartComponent implements OnInit {
    
   ngOnInit() {
     this._expensesDataServices.getExpenses().subscribe((res: any[]) => {
-      console.log(res);
+      //console.log(res);
       const localChartData = this.getChartData(res);
       this.barChartLabels = localChartData.map(x => x[0]).sort();
       this.barChartData = [{ 'data': localChartData.map(x => x[1]), 'label': 'Expenses' }];

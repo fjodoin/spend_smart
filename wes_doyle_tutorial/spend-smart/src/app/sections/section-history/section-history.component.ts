@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EXPENSE_SAMPLE_DATA } from '../../shared/expense.sample';
+import { ExpensesDataServices } from '../../services/expenses-data.service';
+import { Expense } from '../../shared/expense';
 
 @Component({
   selector: 'app-section-history',
@@ -8,18 +9,27 @@ import { EXPENSE_SAMPLE_DATA } from '../../shared/expense.sample';
 })
 export class SectionHistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _expensesDataServices: ExpensesDataServices) { }
 
-  //expenses: Expense[];
-  expenses = EXPENSE_SAMPLE_DATA;
+  //public tempExpenses: Array<any>;
 
+  expenses: Expense[];
   total = 0;
   page = 1;
-  limit = 3;
+  limit = 10;
 
-  ngOnInit(): void {
-    //API GET EXPENSES HERE
-    //getExpenses(this.page, this.limit)
+  ngOnInit() {
+    this._expensesDataServices.getExpenses().subscribe((res: Expense[]) => {
+      const localPaginationData = this.getPaginationData(res);
+      console.log(localPaginationData);
+      //this.paginationLabels = localPaginationData.map(x => x[0]).sort();
+      //this.paginationData = [{ 'data': localPaginationData.map(x => x[1]), 'label': 'Expenses' }];
+    });
+  }
+
+  getPaginationData(res: Expense[]) {
+    this.expenses = res;
+    return this.expenses;
   }
 
   goToPrevious(): void {

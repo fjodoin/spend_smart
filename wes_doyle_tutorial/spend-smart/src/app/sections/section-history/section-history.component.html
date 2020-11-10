@@ -4,12 +4,12 @@
   </h2>
   <table class="table table-inverse table-hover">
     <thead class="thead-dark">
-      <tr>
-        <th>ID</th>
-        <th>Company</th>
-        <th>Amount</th>
-        <th>Date</th>
-        <th>Type</th>
+      <tr style="cursor: pointer">
+        <th scope="col" [appSort]="expenses" data-order="desc" data-name="id">ID</th>
+        <th scope="col" [appSort]="expenses" data-order="desc" data-name="company">Company</th>
+        <th scope="col" [appSort]="expenses" data-order="desc" data-name="amount">Amount</th>
+        <th scope="col" [appSort]="expenses" data-order="desc" data-name="date">Date</th>
+        <th scope="col" [appSort]="expenses" data-order="desc" data-name="type">Type</th>
       </tr>
     </thead>
     <tbody style="color: white">
@@ -25,5 +25,5 @@
   <app-pagination
     (goPrev)="goToPrevious()"
     (goNext)="goToNext()">
-  </app-pagination>
+  </app-pagination> 
 </div>

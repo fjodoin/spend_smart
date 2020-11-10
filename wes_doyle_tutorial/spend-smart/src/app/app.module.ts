@@ -17,6 +17,7 @@ import { ServerComponent } from './server/server.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExpensesDataServices } from './services/expenses-data.service';
+import { SortDirective } from './directive/sort.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { ExpensesDataServices } from './services/expenses-data.service';
     LineChartComponent,
     PieChartComponent,
     ServerComponent,
-    PaginationComponent
+    PaginationComponent,
+    SortDirective,
+
   ],
   imports: [
     BrowserModule,
