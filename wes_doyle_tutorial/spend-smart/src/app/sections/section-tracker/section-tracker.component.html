@@ -14,7 +14,7 @@
           <h5>Grocery Spending</h5>
         </div>
         <div class="card-body">
-          <app-pie-chart></app-pie-chart>
+          <app-pie-chart *ngIf='expenseDataByCompany' [inputData]='expenseDataByCompany'></app-pie-chart>
         </div>
       </div>
       <div class="card mb-3 shadow card-theme">
@@ -22,7 +22,7 @@
           <h5>Other Spending</h5>
         </div>
         <div class="card-body">
-          <app-pie-chart></app-pie-chart>
+          <app-pie-chart *ngIf='expenseDataByType' [inputData]='expenseDataByType'></app-pie-chart>
         </div>
       </div>
     </div>

@@ -33,8 +33,7 @@ export class BarChartComponent implements OnInit {
   }
 
   getChartData(res: any[]) {
-    this.expenses = res;
-    const formattedDates = this.expenses.reduce((r, e) => {
+    const formattedDates = res.reduce((r, e) => {
       r.push([moment(e.date).format('YY-MM-DD'), e.amount]);
       return r;
     }, []);
