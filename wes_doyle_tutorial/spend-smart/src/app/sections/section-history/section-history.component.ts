@@ -11,8 +11,6 @@ export class SectionHistoryComponent implements OnInit {
 
   constructor(private _expensesDataServices: ExpensesDataServices) { }
 
-  //public tempExpenses: Array<any>;
-
   expenses: Expense[];
   total = 0;
   page = 1;
@@ -22,13 +20,12 @@ export class SectionHistoryComponent implements OnInit {
     this._expensesDataServices.getExpenses().subscribe((res: Expense[]) => {
       const localPaginationData = this.getPaginationData(res);
       console.log(localPaginationData);
-      //this.paginationLabels = localPaginationData.map(x => x[0]).sort();
-      //this.paginationData = [{ 'data': localPaginationData.map(x => x[1]), 'label': 'Expenses' }];
     });
   }
 
   getPaginationData(res: Expense[]) {
     this.expenses = res;
+    //do stuff here
     return this.expenses;
   }
 
