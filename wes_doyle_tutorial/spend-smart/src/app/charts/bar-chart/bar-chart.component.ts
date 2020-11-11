@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpensesDataServices } from '../../services/expenses-data.service';
 import * as moment from 'moment';
-import { Expense } from '../../shared/expense';
 
 @Component({
   selector: 'app-bar-chart',
@@ -25,15 +24,15 @@ export class BarChartComponent implements OnInit {
    
   ngOnInit() {
     this._expensesDataServices.getExpenses().subscribe((res: any[]) => {
-      //console.log(res);
       const localChartData = this.getChartData(res);
-      this.barChartLabels = localChartData.map(x => x[0]).sort();
+      this.barChartLabels = localChartData.map(x => x[0]);
       this.barChartData = [{ 'data': localChartData.map(x => x[1]), 'label': 'Expenses' }];
     });
   }
 
   getChartData(res: any[]) {
-    const formattedDates = res.reduce((r, e) => {
+    var sortedData = this.sortData(res);
+    const formattedDates = sortedData.reduce((r, e) => {
       r.push([moment(e.date).format('YY-MM-DD'), e.amount]);
       return r;
     }, []);
@@ -53,6 +52,15 @@ export class BarChartComponent implements OnInit {
     }, []);
 
     return chartData;
+  }
+
+  sortData(res: any[]) {
+    const sortedArray = res.sort((a, b) => {
+      if (a.date > b.date) { return 1; }
+      if (a.date < b.date) { return -1; }
+      return 0;
+    });
+    return sortedArray;
   }
 
  }
