@@ -6,6 +6,7 @@ using SpendsterApi.Dtos;
 using System.Windows.Input;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
+using System.Linq;
 
 namespace SpendsterApi.Controllers
 {
@@ -45,7 +46,7 @@ namespace SpendsterApi.Controllers
             }
 
             return NotFound();
-        }
+        }    
 
         //POST api/spendster/expenses/
         [HttpPost]
@@ -127,6 +128,42 @@ namespace SpendsterApi.Controllers
             _repository.SaveChanges();
 
             return NoContent();
+        }
+    }
+
+    [Route("api/spendster/expenses/month")]
+    [ApiController]
+     public class ExpensesMonthController : ControllerBase
+    {
+        private readonly IExpenseRepo _repository;
+        private readonly IMapper _mapper;
+
+        public ExpensesMonthController(IExpenseRepo repository, IMapper mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
+
+        //GET api/spendster/expenses/month/{year_month}
+        [HttpGet("{year_month}", Name = "GetExpensesByMonth")]
+        public ActionResult<IEnumerable<ExpenseReadDto>> GetExpensesByMonth(string year_month)
+        {
+            var expenseItems = _repository.GetExpensesByMonth(year_month);
+
+            if (expenseItems != null)
+            {
+                List<Expense> monthlyExpenseItems = new List<Expense>();
+
+                foreach (Expense expense in expenseItems)
+                {
+                    if (expense.Date.Contains(year_month)) {
+                        monthlyExpenseItems.Add(expense);
+                    }
+                }
+                return Ok(monthlyExpenseItems);
+            }
+
+            return NotFound();
         }
     }
 }

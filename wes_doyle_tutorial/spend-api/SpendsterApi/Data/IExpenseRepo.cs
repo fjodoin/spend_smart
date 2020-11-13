@@ -10,6 +10,7 @@ namespace SpendsterApi.Data
         void DeleteExpense(Expense exp);
         IEnumerable<Expense> GetAllExpenses();
         Expense GetExpenseById(int id);
+        IEnumerable<Expense> GetExpensesByMonth(string year_month);
         bool SaveChanges();
     }
 }

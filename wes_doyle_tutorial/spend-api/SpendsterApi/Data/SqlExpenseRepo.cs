@@ -45,7 +45,12 @@ namespace SpendsterApi.Data
         {
             return _context.Expenses.FirstOrDefault(p => p.Id == id);
         }
-
+ 
+        public IEnumerable<Expense> GetExpensesByMonth(string year_month)
+        {
+            return _context.Expenses.ToList();
+        }
+       
         public bool SaveChanges()
         {
             return (_context.SaveChanges() >= 0);

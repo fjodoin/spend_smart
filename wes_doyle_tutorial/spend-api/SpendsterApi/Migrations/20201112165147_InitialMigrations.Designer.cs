@@ -9,8 +9,8 @@ using SpendsterApi.Data;
 namespace SpendsterApi.Migrations
 {
     [DbContext(typeof(ExpenseContext))]
-    [Migration("20201109022840_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20201112165147_InitialMigrations")]
+    partial class InitialMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
