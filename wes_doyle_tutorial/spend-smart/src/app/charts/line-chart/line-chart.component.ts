@@ -36,10 +36,8 @@ export class LineChartComponent implements OnInit {
 
   ngOnInit() {
     this._expensesDataServices.getExpenses().subscribe((res: any[]) => {
-      console.log('res:', res);
       const localExpensesData = this.getExpensesData(res);
       this.lineChartLabels = localExpensesData.map(x => x[0]);
-      console.log('data: ', localExpensesData.map(x => x[1]));
       this.lineChartData = [{ 'data': localExpensesData.map(x => x[1]), 'label': 'Expense' }];
 
     });

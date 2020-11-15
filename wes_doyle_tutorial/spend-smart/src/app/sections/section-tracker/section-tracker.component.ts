@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpensesDataServices } from '../../services/expenses-data.service';
-import * as moment from 'moment';
-import { format } from 'util';
 
 @Component({
   selector: 'app-section-tracker',
@@ -17,11 +15,8 @@ export class SectionTrackerComponent implements OnInit {
 
   ngOnInit() {
     this._expensesDataServices.getExpenses().subscribe((res: any[]) => {
-      //console.log(res);
       this.expenseDataByCompany = this.getExpenseDataByCompany(res);
-      //console.log(this.getExpenseDataByCompany(res));
       this.expenseDataByType = this.getExpenseDataByType(res);
-      //console.log(this.getExpenseDataByType(res));
         
     });
   }
