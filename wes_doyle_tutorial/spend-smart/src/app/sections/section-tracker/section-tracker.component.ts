@@ -35,14 +35,12 @@ export class SectionTrackerComponent implements OnInit {
     });
     this._sharedDataServices.sharedDate1.subscribe(sharedDate1 => this.date1 = sharedDate1);
     this._sharedDataServices.sharedDate2.subscribe(sharedDate2 => this.date2 = sharedDate2);
-    this._expensesDataServices.getExpensesByDates(this.date1, this.date2).subscribe((res: any[]) => {
-      console.log('res1:', res);
-    });
+    this._expensesDataServices.getExpensesByDates(this.date1, this.date2).subscribe((res: any[]) => {});
   }
 
   reloadData() {
     this._expensesDataServices.getExpensesByDates(this.date1, this.date2).subscribe((res: any[]) => {
-      console.log('res2:', res);
+      //reload here
     });
   }
 
