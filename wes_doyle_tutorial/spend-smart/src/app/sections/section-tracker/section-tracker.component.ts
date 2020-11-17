@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ExpensesDataServices } from '../../services/expenses-data.service';
+
+import { SharedDataServices } from '../../services/shared-data.service';
+
 
 @Component({
   selector: 'app-section-tracker',
@@ -11,14 +14,23 @@ export class SectionTrackerComponent implements OnInit {
   expenseDataByCompany: any;
   expenseDataByType: any;
 
-  constructor(private _expensesDataServices: ExpensesDataServices) { }
+  date1: string;
+  date2: string;
+
+  constructor(
+    private _expensesDataServices: ExpensesDataServices,
+    private _sharedDataServices: SharedDataServices
+  ) { }
 
   ngOnInit() {
     this._expensesDataServices.getExpenses().subscribe((res: any[]) => {
       this.expenseDataByCompany = this.getExpenseDataByCompany(res);
       this.expenseDataByType = this.getExpenseDataByType(res);
-        
     });
+    this._sharedDataServices.sharedDate1.subscribe(sharedDate1 => this.date1 = sharedDate1);
+    this._sharedDataServices.sharedDate2.subscribe(sharedDate2 => this.date2 = sharedDate2);
+    console.log('date1: ', this.date1);
+    console.log('date2: ', this.date2);
   }
 
   getExpenseDataByCompany(res: any[]) {

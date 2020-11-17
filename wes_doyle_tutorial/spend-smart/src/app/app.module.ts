@@ -16,6 +16,7 @@ import { ChartsModule } from 'ng2-charts';
 import { PaginationComponent } from './pagination/pagination.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExpensesDataServices } from './services/expenses-data.service';
+import { SharedDataServices } from './services/shared-data.service';
 import { SortDirective } from './directive/sort.directive';
 import { MonthPickerComponent } from './sidebar/month-picker/month-picker.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -38,7 +39,7 @@ import { MonthMaterialModule } from './material-module';
     PieChartComponent,
     PaginationComponent,
     SortDirective,
-    MonthPickerComponent,
+    MonthPickerComponent
     
   ],
   imports: [
@@ -51,7 +52,7 @@ import { MonthMaterialModule } from './material-module';
     ReactiveFormsModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
-    MonthMaterialModule
+    MonthMaterialModule,
 
   ],
   entryComponents: [
@@ -59,6 +60,7 @@ import { MonthMaterialModule } from './material-module';
   ],
   providers: [
     ExpensesDataServices,
+    SharedDataServices,
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
   ],
   bootstrap: [

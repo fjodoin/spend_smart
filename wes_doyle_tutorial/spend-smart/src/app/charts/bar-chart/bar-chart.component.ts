@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ExpensesDataServices } from '../../services/expenses-data.service';
 import * as moment from 'moment';
+
+import { MonthPickerComponent } from '../../sidebar/month-picker/month-picker.component';
 
 @Component({
   selector: 'app-bar-chart',
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.css']
 })
-export class BarChartComponent implements OnInit {
+export class BarChartComponent implements AfterViewInit {
+
+  @ViewChild(MonthPickerComponent)
+  public mPicker: MonthPickerComponent;
 
   constructor(private _expensesDataServices: ExpensesDataServices) { }
 
@@ -22,7 +27,7 @@ export class BarChartComponent implements OnInit {
     responsive: true
   };
    
-  ngOnInit() {
+  ngAfterViewInit() {
     this._expensesDataServices.getExpenses().subscribe((res: any[]) => {
       const localChartData = this.getChartData(res);
       this.barChartLabels = localChartData.map(x => x[0]);
