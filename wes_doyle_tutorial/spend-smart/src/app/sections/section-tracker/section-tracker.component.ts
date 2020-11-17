@@ -20,7 +20,13 @@ export class SectionTrackerComponent implements OnInit {
   constructor(
     private _expensesDataServices: ExpensesDataServices,
     private _sharedDataServices: SharedDataServices
-  ) { }
+  ) {
+    this._sharedDataServices.reloadTrackerCalled.subscribe(
+      () => {
+        this.reloadData();
+      }
+    )
+  }
 
   ngOnInit() {
     this._expensesDataServices.getExpenses().subscribe((res: any[]) => {
@@ -29,8 +35,15 @@ export class SectionTrackerComponent implements OnInit {
     });
     this._sharedDataServices.sharedDate1.subscribe(sharedDate1 => this.date1 = sharedDate1);
     this._sharedDataServices.sharedDate2.subscribe(sharedDate2 => this.date2 = sharedDate2);
-    console.log('date1: ', this.date1);
-    console.log('date2: ', this.date2);
+    this._expensesDataServices.getExpensesByDates(this.date1, this.date2).subscribe((res: any[]) => {
+      console.log('res1:', res);
+    });
+  }
+
+  reloadData() {
+    this._expensesDataServices.getExpensesByDates(this.date1, this.date2).subscribe((res: any[]) => {
+      console.log('res2:', res);
+    });
   }
 
   getExpenseDataByCompany(res: any[]) {

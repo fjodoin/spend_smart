@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
+
 
 @Injectable()
 export class SharedDataServices {
@@ -9,12 +10,14 @@ export class SharedDataServices {
   sharedDate1 = this.date1.asObservable();
   sharedDate2 = this.date2.asObservable();
 
+  private reloadTrackerCaller = new Subject<any>();
+  reloadTrackerCalled = this.reloadTrackerCaller.asObservable();
+
   constructor() { }
 
   setNewDates(newDates) {
-    console.log('from shared:', newDates);
     this.date1.next(newDates[0]);
     this.date2.next(newDates[1]);
+    this.reloadTrackerCaller.next();
   }
-
 }
