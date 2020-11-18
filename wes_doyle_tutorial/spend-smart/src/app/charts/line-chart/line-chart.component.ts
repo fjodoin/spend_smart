@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LINE_CHART_COLORS } from '../../shared/chart.colors';
 import { ExpensesDataServices } from '../../services/expenses-data.service';
 import * as moment from 'moment';
+import lodash from 'lodash';
 
 import { SharedDataServices } from '../../services/shared-data.service';
 
@@ -24,39 +25,12 @@ export class LineChartComponent implements OnInit {
   date1: string;
   date2: string;
 
-  constructor(
-    private _expensesDataServices: ExpensesDataServices,
-    private _sharedDataServices: SharedDataServices
-  ) {
+  constructor(private _expensesDataServices: ExpensesDataServices,
+              private _sharedDataServices: SharedDataServices) {
     this._sharedDataServices.reloadTrackerCalled.subscribe(
       () => {
         this.reloadData();
-      }
-    )
-  }
-
-  reloadData() {
-    this._expensesDataServices.getExpensesByDates(this.date1, this.date2).subscribe((res: any[]) => {
-      const sortedReloadData = this.sortData(res);
-      const strippedReloadData = this.stripData(sortedReloadData, this.date1, this.date2);
-      console.log('strippedReloadData:, ', strippedReloadData);
-      this.lineChartLabels = strippedReloadData.map(x => x[0]);
-      console.log('lineChartLabels2: ', this.lineChartLabels);
-      this.lineChartData = [{ 'data': strippedReloadData.map(x => x[1]), 'label': 'Expense' }];
-      console.log('lineChartData2: ', this.lineChartData);
-    });
-  }
-
-  stripData(data, date1, date2) {
-    var strippedData = [];
-    data.forEach(function (exp) {
-      if (exp.date >= date1 && exp.date <= date2) {
-        //console.log(exp.date);
-        strippedData.push([moment(exp.date).format('YYYY-MM-DD'), exp.amount]);
-      }
-    })
-    console.log(strippedData);
-    return strippedData;
+      })
   }
 
   topCompanies: string[];
@@ -74,15 +48,39 @@ export class LineChartComponent implements OnInit {
   ngOnInit() {
     this._sharedDataServices.sharedDate1.subscribe(sharedDate1 => this.date1 = sharedDate1);
     this._sharedDataServices.sharedDate2.subscribe(sharedDate2 => this.date2 = sharedDate2);
-
-    this._expensesDataServices.getExpenses().subscribe((res: any[]) => {
-      const localExpensesData = this.getExpensesData(res);
-      this.lineChartLabels = localExpensesData.map(x => x[0]);
-      console.log('lineChartLabels: ', this.lineChartLabels);
-      this.lineChartData = [{ 'data': localExpensesData.map(x => x[1]), 'label': 'Expense' }];
-      console.log('lineChartData: ', this.lineChartData);
-    });
     this.reloadData()
+  }
+
+  reloadData() {
+    this._expensesDataServices.getExpensesByDates(this.date1, this.date2).subscribe((res: any[]) => {
+      const sortedReloadData = this.sortData(res);
+      const strippedReloadData = this.stripData(sortedReloadData, this.date1, this.date2);
+      this.lineChartLabels = strippedReloadData.map(x => x[0]);
+      this.lineChartData = [{ 'data': strippedReloadData.map(x => x[1]), 'label': 'Expense' }];
+    });
+  }
+
+  stripData(data, date1, date2) {
+    var strippedData = [];
+    data.forEach(function (exp) {
+      if (exp.date >= date1 && exp.date <= date2) {
+        strippedData.push([moment(exp.date).format('YYYY-MM-DD'), exp.amount]);
+      }
+    })
+    const p = [];
+    const chartData = strippedData.reduce((r, e) => {
+      const key = e[0];
+      if (!p[key]) {
+        p[key] = e;
+        r.push(p[key]);
+      }
+      else {
+        p[key][1] += e[1];
+      }
+      return r;
+    }, []);
+    //console.log(chartData);
+    return chartData;
   }
 
   getExpensesData(res: any[]) {
@@ -91,9 +89,7 @@ export class LineChartComponent implements OnInit {
       r.push([moment(e.date).format('YYYY-MM-DD'), e.amount]);
       return r;
     }, []);
-
     const p = [];
-
     const chartData = formattedData.reduce((r, e) => {
       const key = e[0];
       if (!p[key]) {
@@ -105,7 +101,6 @@ export class LineChartComponent implements OnInit {
       }
       return r;
     }, []);
-
     return chartData;
   }
 
@@ -117,6 +112,4 @@ export class LineChartComponent implements OnInit {
     });
     return sortedArray;
   }
-  
-
 }

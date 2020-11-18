@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import moment from 'moment';
 import { BehaviorSubject, Subject } from 'rxjs';
 
 
@@ -16,8 +17,9 @@ export class SharedDataServices {
   constructor() { }
 
   setNewDates(newDates) {
-    this.date1.next(newDates[0]);
-    this.date2.next(newDates[1]);
+    this.date1.next(moment(newDates[0]).format('YYYY-MM-DD'));
+    this.date2.next(moment(newDates[1]).format('YYYY-MM-DD'));
+    //console.log('date1, date2', this.date1.value, this.date2.value);
     this.reloadTrackerCaller.next();
   }
 }

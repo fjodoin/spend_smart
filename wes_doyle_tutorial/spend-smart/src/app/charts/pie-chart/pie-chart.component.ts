@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import _ from 'lodash';
 import { THEME_COLORS } from '../../shared/theme.colors';
 
+import { SharedDataServices } from '../../services/shared-data.service';
+
 const theme = 'Bright';
 
 @Component({
@@ -11,7 +13,12 @@ const theme = 'Bright';
 })
 export class PieChartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _sharedDataServices: SharedDataServices) {
+    this._sharedDataServices.reloadTrackerCalled.subscribe(
+      () => {
+        this.parseChartData();
+      })
+  }
 
   @Input() inputData: any;
 
@@ -22,17 +29,18 @@ export class PieChartComponent implements OnInit {
       borderColor: '#333'
     }
   ];
-
+  pieChartLegend = false;
   pieChartLabels: string[];
   pieChartType = 'doughnut';
 
   ngOnInit() {
-    this.parseChartData(this.inputData);
+    console.log('inputData: ', this.inputData);
+    this.parseChartData();
   }
 
-  parseChartData(res: any) {
-    const allData = res.slice(0, 5);
-    //console.log(allData);
+  parseChartData() {
+    console.log('parseChartData res: ', this.inputData);
+    const allData = this.inputData;
     this.pieChartData = allData.map(x => _.values(x)[1]);
     this.pieChartLabels = allData.map(x => _.values(x)[0]);
   }

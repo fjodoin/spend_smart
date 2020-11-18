@@ -1,8 +1,10 @@
 <div>
   <canvas baseChart
+          *ngIf='pieChartData'
           [data] = "pieChartData"
           [colors] = "colors"
           [labels] = "pieChartLabels"
+          [legend]="pieChartLegend"
           [chartType] = "pieChartType">
   </canvas>
 </div>
