@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ExpensesDataServices {
+export class ExpensesDataService {
 
   private REST_API_SERVER = "http://localhost:5000/api/spendster/expenses";
 

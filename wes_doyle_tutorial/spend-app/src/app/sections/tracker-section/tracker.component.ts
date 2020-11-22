@@ -10,7 +10,7 @@ export class TrackerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('here');
+    //console.log('here');
   }
 
 }

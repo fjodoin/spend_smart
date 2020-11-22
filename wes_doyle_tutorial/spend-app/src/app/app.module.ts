@@ -16,13 +16,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { DatepickerMaterialModule } from './material-module';
 import { MatNativeDateModule } from '@angular/material/core';
-import { ExpensesDataServices } from './services/expenses-data.services';
+import { ExpensesDataService } from './service/expenses-data.service';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BudgetComponent } from './sections/budget-section/budget.component';
-
+import { NavigationService } from './service/navigation.service'
 
 @NgModule({
   declarations: [
@@ -53,6 +53,7 @@ import { BudgetComponent } from './sections/budget-section/budget.component';
     DatepickerComponent
   ],
   providers: [
+    NavigationService,
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
   ],
   bootstrap: [

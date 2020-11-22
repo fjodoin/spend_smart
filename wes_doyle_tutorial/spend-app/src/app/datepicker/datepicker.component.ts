@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { NavigationService } from '../service/navigation.service'
+
 
 const moment = _rollupMoment || _moment;
 
@@ -38,7 +40,12 @@ export const MY_FORMATS = {
 })
 export class DatepickerComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private _navigationService: NavigationService,
+    private router: Router
+  ) {
+    this._navigationService.currentPageChangedCalled.subscribe(() => { this.displayPicker() })
+    }
 
   //Date variables for Date Picker
   date1: any;
@@ -52,16 +59,22 @@ export class DatepickerComponent implements OnInit {
   }
 
   displayPicker() {
+    var currentPage = this._navigationService.getCurrentpage().value;
     var dPicker = document.getElementById('dPicker');
     var mPicker = document.getElementById('mPicker');
 
-    console.log(this.router.url);
-    if (this.router.url === '/tracker' || this.router.url === '/') {
+    console.log('current page: ', currentPage);
+
+    if (currentPage === '/tracker' || currentPage === '/') {
       mPicker.style.display = "none";
       dPicker.style.display = "block";
     }
-    else if (this.router.url === '/budget' ) {
+    else if (currentPage === '/budget') {
+      mPicker.style.display = "block";
       dPicker.style.display = "none";
+    }
+    else {
+      console.log('else quit');
     }
   }
 

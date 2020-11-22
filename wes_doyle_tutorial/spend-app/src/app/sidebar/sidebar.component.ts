@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { NavigationService } from '../service/navigation.service'
 
 @Component({
   selector: 'app-sidebar',
@@ -7,16 +8,18 @@ import { Component, AfterViewInit } from '@angular/core';
 })
 export class SidebarComponent implements AfterViewInit {
 
-  constructor() { }
+  constructor(
+    private _navigationService: NavigationService,
+  ) { }
 
   ngAfterViewInit(): void {
   }
 
   trackerClicked() {
-    console.log('trackerClicked()');
+    this._navigationService.setCurrentPage("/tracker");
   }
 
   budgetClicked() {
-    console.log('budgetClicked()');
+    this._navigationService.setCurrentPage("/budget");
   }
 }
