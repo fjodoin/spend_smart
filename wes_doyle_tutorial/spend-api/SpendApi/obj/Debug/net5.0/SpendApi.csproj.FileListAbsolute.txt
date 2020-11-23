@@ -1,0 +1,7 @@
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendApi\obj\Debug\net5.0\SpendApi.csprojAssemblyReference.cache
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendApi\obj\Debug\net5.0\SpendApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendApi\obj\Debug\net5.0\SpendApi.AssemblyInfoInputs.cache
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendApi\obj\Debug\net5.0\SpendApi.AssemblyInfo.cs
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendApi\obj\Debug\net5.0\SpendApi.csproj.CoreCompileInputs.cache
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendApi\obj\Debug\net5.0\SpendApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\filip\Desktop\Github\spend_smart\spend_smart\wes_doyle_tutorial\spend-api\SpendApi\obj\Debug\net5.0\SpendApi.MvcApplicationPartsAssemblyInfo.cache
