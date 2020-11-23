@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\spend-api",
-    "\\spend-api\\Commander",
-    "\\spend-api\\Commander\\Controllers",
-    "\\spend-api\\Commander\\Dtos",
-    "\\spend-api\\Commander\\Models",
-    "\\spend-api\\Commander\\Profiles",
-    "\\spend-api\\SpendsterApi",
-    "\\spend-api\\SpendsterApi\\Controllers",
-    "\\spend-api\\SpendsterApi\\Migrations"
+    "\\spend-app",
+    "\\spend-app\\src",
+    "\\spend-app\\src\\app",
+    "\\spend-app\\src\\app\\datepicker",
+    "\\spend-app\\src\\app\\sections",
+    "\\spend-app\\src\\app\\sections\\tracker-section",
+    "\\spend-app\\src\\app\\sidebar",
+    "\\spend-smart\\src",
+    "\\spend-smart\\src\\app\\sidebar"
   ],
-  "SelectedNode": "\\spend-api\\Commander\\Controllers\\CommandsController.cs",
+  "SelectedNode": "\\spend-app\\src\\app\\datepicker\\datepicker.component.html",
   "PreviewInSolutionExplorer": false
 }
