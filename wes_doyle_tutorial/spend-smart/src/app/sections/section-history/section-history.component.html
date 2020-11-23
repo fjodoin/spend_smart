@@ -1,0 +1,29 @@
+<div class="section-container">
+  <h2>
+    Spending History
+  </h2>
+  <table class="table table-inverse table-hover">
+    <thead class="thead-dark">
+      <tr style="cursor: pointer">
+        <th scope="col" [appSort]="expenses" data-order="desc" data-name="id">ID</th>
+        <th scope="col" [appSort]="expenses" data-order="desc" data-name="company">Company</th>
+        <th scope="col" [appSort]="expenses" data-order="desc" data-name="amount">Amount</th>
+        <th scope="col" [appSort]="expenses" data-order="desc" data-name="date">Date</th>
+        <th scope="col" [appSort]="expenses" data-order="desc" data-name="type">Type</th>
+      </tr>
+    </thead>
+    <tbody style="color: white">
+      <tr *ngFor="let expense of expenses">
+        <td>{{ expense.id }}</td>
+        <td>{{ expense.company }}</td>
+        <td>{{ expense.amount }}</td>
+        <td>{{ expense.date }}</td>
+        <td>{{ expense.type }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <app-pagination
+    (goPrev)="goToPrevious()"
+    (goNext)="goToNext()">
+  </app-pagination> 
+</div>
