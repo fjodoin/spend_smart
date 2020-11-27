@@ -2,12 +2,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System;
 
-namespace SpendApi.Models
+namespace SpendApi.Dtos
 {
-    public class Bill
+    public class GoalUpdateDto
     {
-        public int Id { get; set; }
-
         [Required]
         [MaxLength(140)]
         public string Company { get; set; }
@@ -18,10 +16,10 @@ namespace SpendApi.Models
 
         [Required]
         [Column(TypeName = "decimal(18,4)")]
-        public decimal AmountDue { get; set; }
+        public decimal AmountGoal { get; set; }
 
         [Required]
-        public DateTime DateBill { get; set; }
+        public DateTime DateGoal { get; set; }
 
         [Required]
         public string Type { get; set; }

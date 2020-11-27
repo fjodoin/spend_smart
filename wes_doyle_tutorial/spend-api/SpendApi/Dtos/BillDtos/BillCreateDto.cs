@@ -2,12 +2,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System;
 
-namespace SpendApi.Models
+namespace SpendApi.Dtos
 {
-    public class Bill
+    public class BillCreateDto
     {
-        public int Id { get; set; }
-
         [Required]
         [MaxLength(140)]
         public string Company { get; set; }
@@ -21,7 +19,7 @@ namespace SpendApi.Models
         public decimal AmountDue { get; set; }
 
         [Required]
-        public DateTime DateBill { get; set; }
+        public DateTime DateDue { get; set; }
 
         [Required]
         public string Type { get; set; }

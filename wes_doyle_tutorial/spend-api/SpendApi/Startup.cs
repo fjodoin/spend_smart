@@ -42,12 +42,18 @@ namespace SpendApi
             _connectionString = Configuration["secretConnectionString"];
 
             services.AddDbContext<ExpenseContext>(opt => opt.UseSqlServer(_connectionString));
+            services.AddDbContext<IncomeContext>(opt => opt.UseSqlServer(_connectionString));
+            services.AddDbContext<BillContext>(opt => opt.UseSqlServer(_connectionString));
+            services.AddDbContext<GoalContext>(opt => opt.UseSqlServer(_connectionString));
            
             services.AddControllers().AddNewtonsoftJson(s => {
                 s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();    
             });
 
             services.AddScoped<IExpenseRepo, SqlExpenseRepo>();
+            services.AddScoped<IIncomeRepo, SqlIncomeRepo>();
+            services.AddScoped<IBillRepo, SqlBillRepo>();
+            services.AddScoped<IGoalRepo, SqlGoalRepo>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

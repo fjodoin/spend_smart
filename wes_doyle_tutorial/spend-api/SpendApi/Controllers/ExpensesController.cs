@@ -31,8 +31,6 @@ namespace SpendApi.Controllers
             var expenseItems = _repository.GetAllExpenses();
             var mappedExpenseItems = _mapper.Map<IEnumerable<ExpenseReadDto>>(expenseItems);
 
-            //var page = new PaginatedResponse<Expense>(mappedExpenseItems);
-
             return Ok(mappedExpenseItems);
         }
 

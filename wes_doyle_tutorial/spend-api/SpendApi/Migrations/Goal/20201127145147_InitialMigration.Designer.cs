@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SpendApi.Data;
 
-namespace SpendApi.Migrations
+namespace SpendApi.Migrations.Goal
 {
-    [DbContext(typeof(ExpenseContext))]
-    [Migration("20201123193608_InitialMigrations")]
-    partial class InitialMigrations
+    [DbContext(typeof(GoalContext))]
+    [Migration("20201127145147_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,14 +21,17 @@ namespace SpendApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SpendApi.Models.Expense", b =>
+            modelBuilder.Entity("SpendApi.Models.Goal", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("Amount")
+                    b.Property<decimal>("AmountGoal")
+                        .HasColumnType("decimal(18,4)");
+
+                    b.Property<decimal>("AmountSaved")
                         .HasColumnType("decimal(18,4)");
 
                     b.Property<string>("Company")
@@ -36,7 +39,7 @@ namespace SpendApi.Migrations
                         .HasColumnType("nvarchar(140)")
                         .HasMaxLength(140);
 
-                    b.Property<DateTime>("DateExpense")
+                    b.Property<DateTime>("DateGoal")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Type")
@@ -45,7 +48,7 @@ namespace SpendApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Expenses");
+                    b.ToTable("Goals");
                 });
 #pragma warning restore 612, 618
         }
