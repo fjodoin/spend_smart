@@ -8,19 +8,20 @@ import { Router } from '@angular/router';
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { NavigationService } from '../service/navigation.service'
+import { PickerService } from '../service/picker.service';
 
 
 const moment = _rollupMoment || _moment;
 
 export const MY_FORMATS = {
   parse: {
-    dateInput: 'MM/YYYY',
+    dateInput: 'YYYY-MM',
   },
   display: {
-    dateInput: 'MM/YYYY',
-    monthYearLabel: 'MMM YYYY',
+    dateInput: 'YYYY-MM',
+    monthYearLabel: 'YYYY MMM',
     dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
+    monthYearA11yLabel: 'YYYY MMMM',
   },
 };
 
@@ -42,13 +43,14 @@ export class MonthpickerComponent implements OnInit {
 
   constructor(
     private _navigationService: NavigationService,
+    private _pickerService: PickerService,
     private router: Router
   ) {
     this._navigationService.currentPageChangedCalled.subscribe(() => { this.displayPicker() })
   }
 
-  //Date variable for Month picker
-  date = new FormControl(moment());
+  //Month variable for Month picker
+  month = new FormControl(moment());
 
   ngOnInit(): void {
     this.displayPicker();
@@ -70,15 +72,16 @@ export class MonthpickerComponent implements OnInit {
 
   //Month Picker Functions
   chosenYearHandler(normalizedYear: Moment) {
-    const ctrlValue = this.date.value;
+    const ctrlValue = this.month.value;
     ctrlValue.year(normalizedYear.year());
-    this.date.setValue(ctrlValue);
+    this.month.setValue(ctrlValue);
   }
 
-  chosenMonthHandler(normalizedMonth: Moment, datepicker: MatDatepicker<Moment>) {
-    const ctrlValue = this.date.value;
+  chosenMonthHandler(normalizedMonth: Moment, monthpicker: MatDatepicker<Moment>) {
+    const ctrlValue = this.month.value;
     ctrlValue.month(normalizedMonth.month());
-    this.date.setValue(ctrlValue);
-    datepicker.close();
+    this.month.setValue(ctrlValue);
+    this._pickerService.setCurrentMonthpickerMonth(this.month.value.format('YYYY-MM'));
+    monthpicker.close();
   }
 }

@@ -4,11 +4,11 @@ import { BehaviorSubject, Subject } from 'rxjs';
 @Injectable()
 export class NavigationService {
 
-  // Shared Current Page variable (used for datepicker)
+  // Shared Current Page variable (used for datepicker & monthpicker)
   private currentPage = new BehaviorSubject("/");
   sharedCurrentPage = this.currentPage.asObservable();
 
-  // Shared Current Page change function (used for datepicker)
+  // Shared Current Page change function (used for datepicker & monthpicker)
   private currentPageChanged = new Subject<any>();
   currentPageChangedCalled = this.currentPageChanged.asObservable();
 

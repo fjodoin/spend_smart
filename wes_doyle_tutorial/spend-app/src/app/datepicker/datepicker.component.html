@@ -1,13 +1,13 @@
 <div id="dPicker">
   <mat-form-field color="accent" appearance="fill">
     <mat-label class="mat-label-text">Start Date</mat-label>
-    <input matInput [matDatepicker]="picker1">
+    <input matInput [matDatepicker]="picker1" [formControl]="dpickerDate1" (dateChange)="onDateChange($event, 'datepickerDate1')">
     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
     <mat-datepicker #picker1></mat-datepicker>
   </mat-form-field>
   <mat-form-field color="accent" appearance="fill">
     <mat-label class="mat-label-text">End Date</mat-label>
-    <input matInput [matDatepicker]="picker2">
+    <input matInput [matDatepicker]="picker2" [formControl]="dpickerDate2" (dateChange)="onDateChange($event, 'datepickerDate2')">
     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
     <mat-datepicker #picker2 color="primary"></mat-datepicker>
   </mat-form-field>
