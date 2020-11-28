@@ -14,10 +14,10 @@ const moment = _rollupMoment || _moment;
 
 export const MY_FORMATS = {
   parse: {
-    dateInput: 'DD/MM/YYYY',
+    dateInput: 'MM/YYYY',
   },
   display: {
-    dateInput: 'DD/MM/YYYY',
+    dateInput: 'MM/YYYY',
     monthYearLabel: 'MMM YYYY',
     dateA11yLabel: 'LL',
     monthYearA11yLabel: 'MMMM YYYY',
@@ -25,9 +25,9 @@ export const MY_FORMATS = {
 };
 
 @Component({
-  selector: 'app-datepicker',
-  templateUrl: './datepicker.component.html',
-  styleUrls: ['./datepicker.component.css'],
+  selector: 'app-monthpicker',
+  templateUrl: './monthpicker.component.html',
+  styleUrls: ['./monthpicker.component.css'],
   providers: [
     {
       provide: DateAdapter,
@@ -38,18 +38,17 @@ export const MY_FORMATS = {
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
 })
-export class DatepickerComponent implements OnInit {
+export class MonthpickerComponent implements OnInit {
 
   constructor(
     private _navigationService: NavigationService,
     private router: Router
   ) {
     this._navigationService.currentPageChangedCalled.subscribe(() => { this.displayPicker() })
-    }
+  }
 
-  //Date variables for Date Picker
-  date1: any;
-  date2: any;
+  //Date variable for Month picker
+  date = new FormControl(moment());
 
   ngOnInit(): void {
     this.displayPicker();
@@ -57,15 +56,29 @@ export class DatepickerComponent implements OnInit {
 
   displayPicker() {
     var currentPage = this._navigationService.getCurrentpage().value;
-    var dPicker = document.getElementById('dPicker');
+    var mPicker = document.getElementById('mPicker');
 
     //console.log('current page: ', currentPage);
 
-    if (currentPage === '/tracker' || currentPage === '/') {
-      dPicker.style.display = "block";
+    if (currentPage === '/budget') {
+      mPicker.style.display = "block";
     }
     else {
-      dPicker.style.display = "none";
+      mPicker.style.display = "none";
     }
+  }
+
+  //Month Picker Functions
+  chosenYearHandler(normalizedYear: Moment) {
+    const ctrlValue = this.date.value;
+    ctrlValue.year(normalizedYear.year());
+    this.date.setValue(ctrlValue);
+  }
+
+  chosenMonthHandler(normalizedMonth: Moment, datepicker: MatDatepicker<Moment>) {
+    const ctrlValue = this.date.value;
+    ctrlValue.month(normalizedMonth.month());
+    this.date.setValue(ctrlValue);
+    datepicker.close();
   }
 }

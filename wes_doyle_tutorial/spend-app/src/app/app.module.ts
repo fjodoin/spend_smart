@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TrackerComponent } from './sections/tracker-section/tracker.component';
-import { SavingsChartComponent } from './charts/savings-chart/savings-chart.component';
+import { GoalsChartComponent } from './charts/goals-chart/goals-chart.component';
 import { CompanyChartComponent } from './charts/company-chart/company-chart.component';
 import { TypeChartComponent } from './charts/type-chart/type-chart.component';
 import { DateChartComponent } from './charts/date-chart/date-chart.component';
@@ -22,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BudgetComponent } from './sections/budget-section/budget.component';
-import { NavigationService } from './service/navigation.service'
+import { NavigationService } from './service/navigation.service';
+import { MonthpickerComponent } from './monthpicker/monthpicker.component'
 
 @NgModule({
   declarations: [
@@ -30,12 +31,13 @@ import { NavigationService } from './service/navigation.service'
     SidebarComponent,
     NavbarComponent,
     TrackerComponent,
-    SavingsChartComponent,
+    GoalsChartComponent,
     CompanyChartComponent,
     TypeChartComponent,
     DateChartComponent,
     DatepickerComponent,
-    BudgetComponent
+    BudgetComponent,
+    MonthpickerComponent
   ],
   imports: [
     BrowserModule,
