@@ -24,6 +24,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BudgetComponent } from './sections/budget-section/budget.component';
 import { NavigationService } from './service/navigation.service';
 import { MonthpickerComponent } from './monthpicker/monthpicker.component'
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { MonthpickerComponent } from './monthpicker/monthpicker.component'
     MatNativeDateModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    ChartsModule
   ],
   entryComponents: [
     DatepickerComponent

@@ -13,4 +13,9 @@ export class ExpensesDataService {
   public getExpenses() {
     return this.httpClient.get(this.REST_API_SERVER);
   }
+
+  public getExpensesByDates(date1, date2) {
+    //console.log('lol here', date1, date2);
+    return this.httpClient.get(this.REST_API_SERVER + "/date1=" + date1 + "&" + "date2=" + date2);
+  }
 }
