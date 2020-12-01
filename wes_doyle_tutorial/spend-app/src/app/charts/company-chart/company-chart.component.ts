@@ -43,7 +43,6 @@ export class CompanyChartComponent implements OnInit {
       let sortedRes = this.sortData(res);
       const localCompanyData = this.getCompanyData(sortedRes);
       console.log(localCompanyData);
-      //this.companyChartData = localCompanyData.map(x => x[2]);
       this.companyChartData = localCompanyData.map(x => x[1]);
       this.companyChartLabels = localCompanyData.map(x => x[0]);
     });
@@ -56,22 +55,22 @@ export class CompanyChartComponent implements OnInit {
 
   sortData(res: any[]) {
     const sortedArray = res.sort((a, b) => {
-      if (a.dateGoal > b.dateExpense) { return 1; }
-      if (a.dateGoal < b.dateExpense) { return -1; }
+      if (a.dateExpense > b.dateExpense) { return 1; }
+      if (a.dateExpense < b.dateExpense) { return -1; }
       return 0;
     });
     return sortedArray;
   }
 
   getCompanyData(sortedRes: any[]) {
-    const formattedGoals = sortedRes.reduce((r, e) => {
+    const formattedCompanies = sortedRes.reduce((r, e) => {
       r.push([e.company, e.amount]);
       return r;
     }, []);
 
     const p = [];
 
-    const chartData = formattedGoals.reduce((r, e) => {
+    const chartData = formattedCompanies.reduce((r, e) => {
       const key = e[0];
       if (!p[key]) {
         p[key] = e;

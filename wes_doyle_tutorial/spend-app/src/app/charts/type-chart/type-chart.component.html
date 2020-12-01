@@ -1,1 +1,10 @@
-<p>type-chart works!</p>
+<div>
+  <canvas baseChart
+          *ngIf='typeChartData'
+          [data]="typeChartData"
+          [colors]="colors"
+          [labels]="typeChartLabels"
+          [legend]="typeChartLegend"
+          [chartType]="typeChartType">
+  </canvas>
+</div>
