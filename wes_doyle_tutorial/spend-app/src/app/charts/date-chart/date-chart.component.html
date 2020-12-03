@@ -1,1 +1,13 @@
-<p>date-chart works!</p>
+<div class="chart">
+  <canvas baseChart
+          *ngIf='dateChartData'
+          width="100"
+          height="24"
+          [datasets]="dateChartData"
+          [labels]="dateChartLabels"
+          [options]="dateChartOptions"
+          [legend]="dateChartLegend"
+          [colors]="dateChartColors"
+          [chartType]="dateChartType">
+  </canvas>
+</div>

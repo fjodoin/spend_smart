@@ -39,10 +39,9 @@ export class TypeChartComponent implements OnInit {
   updateChartData() {
     const dates = this._pickerService.getCurrentDatepickerDates();
     this._expensesDataService.getExpensesByDates(dates[0].value, dates[1].value).subscribe((res: any[]) => {
-      console.log(res);
       let sortedRes = this.sortData(res);
       const localTypeData = this.getTypeData(sortedRes);
-      console.log(localTypeData);
+      //console.log(localTypeData);
       this.typeChartData = localTypeData.map(x => x[1]);
       this.typeChartLabels = localTypeData.map(x => x[0]);
     });

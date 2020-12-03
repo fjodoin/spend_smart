@@ -39,10 +39,10 @@ export class CompanyChartComponent implements OnInit {
   updateChartData() {
     const dates = this._pickerService.getCurrentDatepickerDates();
     this._expensesDataService.getExpensesByDates(dates[0].value, dates[1].value).subscribe((res: any[]) => {
-      console.log(res);
+      //console.log(res);
       let sortedRes = this.sortData(res);
       const localCompanyData = this.getCompanyData(sortedRes);
-      console.log(localCompanyData);
+      //console.log(localCompanyData);
       this.companyChartData = localCompanyData.map(x => x[1]);
       this.companyChartLabels = localCompanyData.map(x => x[0]);
     });
